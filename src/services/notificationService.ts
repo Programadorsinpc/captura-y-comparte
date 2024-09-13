@@ -1,4 +1,3 @@
-// services/notificationService.ts
 import { collection, query, where, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 import { firestore } from "./firebaseConfig";
 

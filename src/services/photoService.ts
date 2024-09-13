@@ -1,4 +1,3 @@
-// services/photoService.ts
 import {
   doc,
   updateDoc,
