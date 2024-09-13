@@ -1,4 +1,3 @@
-// src/components/Login/AuthForm.tsx
 interface AuthFormProps {
   isLogin: boolean;
   handleAuth: (event: React.FormEvent) => void;

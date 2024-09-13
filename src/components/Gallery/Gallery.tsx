@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePhotos } from "../../hooks/usePhotos";
 import UploadPhoto from "../Upload/UploadPhoto";
-import PhotoModal from "../PhotoModal";
+import PhotoModal from "../Commons/PhotoModal";
 import PhotoCard from "./PhotoCard";
 
 // Componente principal de la Galería

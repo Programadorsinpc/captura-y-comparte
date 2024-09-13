@@ -1,5 +1,5 @@
 import Gallery from "../components/Gallery/Gallery";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Commons/NavBar";
 
 
 const Home = () => {

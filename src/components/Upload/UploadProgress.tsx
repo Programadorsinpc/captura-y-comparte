@@ -1,4 +1,3 @@
-// src/components/UploadProgress.tsx
 interface UploadProgressProps {
     progress: number;
   }

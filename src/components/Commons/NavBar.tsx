@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../services/firebaseConfig";
-import Notifications from "./Notifications/Notifications"; // Importa el componente de notificaciones
-import { handleSignOut } from "../services/authService"; // Importa la función para cerrar sesión
+import { auth } from "../../services/firebaseConfig";
+import Notifications from "../Notifications/Notifications"; 
+import { handleSignOut } from "../../services/authService"; 
 
 const Navbar = () => {
   const [user] = useAuthState(auth);

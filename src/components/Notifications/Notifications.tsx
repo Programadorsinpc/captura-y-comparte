@@ -1,4 +1,3 @@
-// components/Notifications.tsx
 import { useAuthState } from "react-firebase-hooks/auth";
 import NotificationList from "./NotificationList";
 import { auth } from "../../services/firebaseConfig";
