@@ -35,20 +35,27 @@ npm install
 
 npm run dev
 
+### 3. Verifica la direccion
+
+La aplicacion se ejecuta en http://localhost:5173/, puedes verificarlo en tu consola
 
 ## 📂 Estructura del Proyecto
+
 .
-├── public/                  # Archivos estáticos
+├── public/ # Archivos estáticos
 ├── src/
-│   ├── components/          # Componentes reutilizables
-│   ├── pages/               # Páginas principales de la aplicación
-│   ├── services/            # Firebase y lógica de servicios
-│   ├── App.tsx              # Configuración principal de la app
-│   └── index.tsx            # Punto de entrada de React
-└── package.json             # Dependencias del proyecto
+│ ├── components/ # Componentes reutilizables
+│ ├── hooks/ # Hooks usados
+│ ├── pages/ # Páginas principales de la aplicación
+│ ├── services/ # Firebase y lógica de servicios
+│ ├── App.tsx # Configuración principal de la app
+│ └── index.tsx # Punto de entrada de React
+└── package.json # Dependencias del proyecto
 
 ## 🤝 Contribuciones
+
 ¡Las contribuciones son bienvenidas! Siéntete libre de abrir un issue o un pull request si deseas mejorar alguna característica o corregir un error.
 
 ## ¡Gracias por explorar este proyecto! 🎉
+
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme.
