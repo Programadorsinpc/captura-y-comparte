@@ -43,16 +43,15 @@ La aplicacion se ejecuta en http://localhost:5173/, puedes verificarlo en tu con
 
 ## 📂 Estructura del Proyecto
 
-.
-**├── public/                # Archivos estáticos**
-**├── src/**
-**│   ├── components/        # Componentes reutilizables**
-**│   ├── hooks/             # Hooks usados**
-**│   ├── pages/             # Páginas principales de la aplicación**
-**│   ├── services/          # Firebase y lógica de servicios**
-**│   ├── App.tsx            # Configuración principal de la app**
-**│   └── index.tsx          # Punto de entrada de React**
-**└── package.json           # Dependencias del proyecto**
+- **├── public/                # Archivos estáticos**
+- **├── src/**
+- **│   ├── components/        # Componentes reutilizables**
+- **│   ├── hooks/             # Hooks usados**
+- **│   ├── pages/             # Páginas principales de la aplicación**
+- **│   ├── services/          # Firebase y lógica de servicios**
+- **│   ├── App.tsx            # Configuración principal de la app**
+- **│   └── index.tsx          # Punto de entrada de React**
+- **└── package.json           # Dependencias del proyecto**
 
 
 ## 🤝 Contribuciones
