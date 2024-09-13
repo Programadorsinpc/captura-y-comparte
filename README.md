@@ -33,7 +33,9 @@ npm install
 
 ### 3. Corre el proyecto
 
-npm run dev
+npm run start
+
+Nota: Esto debe abrir automaticamente tu navegador, si no es asi click http://localhost:5173/
 
 ### 4. Verifica la direccion
 
