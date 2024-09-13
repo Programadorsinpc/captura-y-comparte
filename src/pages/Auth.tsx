@@ -1,11 +1,9 @@
 import { useState } from "react";
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
-import { auth } from "../firebaseConfig";
+  loginWithEmail,
+  registerWithEmail,
+  loginWithGoogle,
+} from "../services/authService"; // Importar el servicio
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -16,13 +14,12 @@ const Auth = () => {
   const handleAuth = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
-
     try {
       if (isLogin) {
-        await signInWithEmailAndPassword(auth, email, password);
+        await loginWithEmail(email, password); // Usar el servicio
         console.log("Usuario autenticado con éxito.");
       } else {
-        await createUserWithEmailAndPassword(auth, email, password);
+        await registerWithEmail(email, password); // Usar el servicio
         console.log("Usuario registrado con éxito.");
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,9 +29,8 @@ const Auth = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await loginWithGoogle(); // Usar el servicio
       console.log("Inicio de sesión con Google exitoso");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

@@ -1,6 +1,6 @@
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { firestore, auth } from "../firebaseConfig";
+import { firestore, auth } from "../services/firebaseConfig";
 import { useEffect, useState } from "react";
 
 const Notifications = () => {

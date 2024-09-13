@@ -4,10 +4,10 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Auth from "./components/Auth";
-import Gallery from "./components/Gallery"; // Crearemos esta componente a continuación
+import Auth from "./pages/Auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebaseConfig";
+import { auth } from "./services/firebaseConfig";
+import Home from "./pages/Home";
 
 function App() {
   const [user, loading] = useAuthState(auth); // Hook para observar el estado de autenticación
@@ -19,15 +19,19 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirigimos a la galería si el usuario ya está autenticado */}
+        {/* Redirige automáticamente a /auth o /home según el estado de autenticación */}
+        <Route path="/" element={<Navigate to={user ? "/home" : "/auth"} />} />
+        
+        {/* Ruta de autenticación */}
         <Route
           path="/auth"
-          element={user ? <Navigate to="/gallery" /> : <Auth />}
+          element={user ? <Navigate to="/home" /> : <Auth />}
         />
+        
         {/* Ruta protegida, solo accesible si el usuario está autenticado */}
         <Route
-          path="/gallery"
-          element={user ? <Gallery /> : <Navigate to="/auth" />}
+          path="/home"
+          element={user ? <Home /> : <Navigate to="/auth" />}
         />
       </Routes>
     </Router>

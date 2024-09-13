@@ -4,12 +4,13 @@ import { getFirestore } from "firebase/firestore"; // Importar Firestore
 import { getStorage } from "firebase/storage"; // Importar Storage
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyBfjO9K6aS6-5NdPqZtjKO85uScUc7AMO8",
+  authDomain: "viaje-fotografico.firebaseapp.com",
+  projectId: "viaje-fotografico",
+  storageBucket: "viaje-fotografico.appspot.com",
+  messagingSenderId: "914911696957",
+  appId: "1:914911696957:web:9a6da479f6e57d12033254",
+  measurementId: "G-BNVRV3PCE1"
 };
 
 // Initialize Firebase
