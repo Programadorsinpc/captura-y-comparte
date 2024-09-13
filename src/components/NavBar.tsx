@@ -2,12 +2,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../services/firebaseConfig";
-import Notifications from "./Notifications"; // Importa el componente de notificaciones
+import Notifications from "./Notifications/Notifications"; // Importa el componente de notificaciones
 import { handleSignOut } from "../services/authService"; // Importa la función para cerrar sesión
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // Estado para manejar el menú de perfil
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false); // Estado para manejar el menú de notificaciones
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+    setIsNotificationsOpen(false); // Asegurarse de que solo uno esté abierto a la vez
+  };
+
+  const toggleNotifications = () => {
+    setIsNotificationsOpen(!isNotificationsOpen);
+    setIsProfileOpen(false); // Asegurarse de que solo uno esté abierto a la vez
+  };
 
   return (
     <nav className="bg-blue-500 p-4 w-full flex justify-between items-center">
@@ -19,20 +30,25 @@ const Navbar = () => {
         {user && (
           <>
             {/* Notificaciones */}
-            <div className="relative group">
-              <button className="text-white focus:outline-none">
+            <div className="relative">
+              <button
+                className="text-white focus:outline-none"
+                onClick={toggleNotifications} // Toggle para abrir/cerrar notificaciones
+              >
                 Notificaciones
               </button>
-              <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 hidden group-hover:block">
-                <Notifications />
-              </div>
+              {isNotificationsOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4">
+                  <Notifications />
+                </div>
+              )}
             </div>
 
             {/* Perfil */}
             <div className="relative">
               <button
                 className="text-white hover:underline"
-                onClick={() => setIsProfileOpen(!isProfileOpen)} // Toggle para desplegar la card
+                onClick={toggleProfile} // Toggle para abrir/cerrar el perfil
               >
                 Perfil
               </button>
@@ -41,7 +57,7 @@ const Navbar = () => {
                   <div className="flex flex-col items-center">
                     {/* Foto del usuario */}
                     <img
-                      src={user?.photoURL || "/default-avatar.png"}
+                      src={user?.photoURL || "/react.svg"}
                       alt="Avatar"
                       className="w-16 h-16 rounded-full mb-2"
                     />

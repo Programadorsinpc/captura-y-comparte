@@ -14,6 +14,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { User } from "firebase/auth";
 
 // Función para subir fotos a firebase
 export const uploadPhotoToStorage = (
@@ -79,13 +80,12 @@ export const addNotification = async (ownerId: string, message: string) => {
 };
 
 // Función para manejar los likes
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const handleLike = async (
   photoId: string,
   currentLikes: number,
   ownerId: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  user: any
+  user: User
 ) => {
   const photoRef = doc(firestore, "photos", photoId);
   try {
@@ -94,8 +94,8 @@ export const handleLike = async (
     });
     console.log("Like agregado!");
 
-    if (user?.uid !== ownerId) {
-      await addNotification(ownerId, `${user?.email} ha dado like a tu foto.`);
+    if (user.uid !== ownerId) {
+      await addNotification(ownerId, `${user.email} ha dado like a tu foto.`);
     }
   } catch (error) {
     console.error("Error al dar like: ", error);

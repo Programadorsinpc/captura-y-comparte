@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'auth-background': "url('assets/img/auth-background.jpg')",
+        'home-background': "url('assets/img/home-background.jpg')",
+      }
+    },
   },
   plugins: [],
 }
