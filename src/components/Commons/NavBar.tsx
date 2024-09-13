@@ -53,7 +53,7 @@ const Navbar = () => {
                 Perfil
               </button>
               {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4">
+                <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-50">
                   <div className="flex flex-col items-center">
                     {/* Foto del usuario */}
                     <img
