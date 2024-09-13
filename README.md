@@ -35,7 +35,7 @@ npm install
 
 npm run dev
 
-### 3. Verifica la direccion
+### 4. Verifica la direccion
 
 La aplicacion se ejecuta en http://localhost:5173/, puedes verificarlo en tu consola
 
