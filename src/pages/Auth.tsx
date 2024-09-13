@@ -10,12 +10,19 @@ import GoogleSignInButton from "../components/Login/GoogleSignIn";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // Nuevo estado para la confirmación
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
 
   const handleAuth = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
+
+    if (!isLogin && password !== confirmPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
     try {
       if (isLogin) {
         await loginWithEmail(email, password);
@@ -37,7 +44,7 @@ const Auth = () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log(error.message);
-      setError("Error: Se ha cerrado la ventana de inicio de sesin");
+      setError("Error: Se ha cerrado la ventana de inicio de sesión");
     }
   };
 
@@ -50,6 +57,8 @@ const Auth = () => {
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
+        confirmPassword={confirmPassword}
+        setConfirmPassword={setConfirmPassword} // Pasar estado de confirmación
         error={error}
       />
       <GoogleSignInButton handleGoogleSignIn={handleGoogleSignIn} />

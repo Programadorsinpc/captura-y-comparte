@@ -1,3 +1,4 @@
+// src/components/Login/AuthForm.tsx
 interface AuthFormProps {
   isLogin: boolean;
   handleAuth: (event: React.FormEvent) => void;
@@ -5,6 +6,8 @@ interface AuthFormProps {
   setEmail: (email: string) => void;
   password: string;
   setPassword: (password: string) => void;
+  confirmPassword?: string; // Hacerlo opcional porque solo se usa en registro
+  setConfirmPassword?: (confirmPassword: string) => void;
   error: string;
 }
 
@@ -15,42 +18,67 @@ const AuthForm = ({
   setEmail,
   password,
   setPassword,
+  confirmPassword,
+  setConfirmPassword,
   error,
 }: AuthFormProps) => {
   return (
-    <form
-      onSubmit={handleAuth}
-      className="bg-white p-8 rounded-lg shadow-md w-80"
-    >
-      <h2 className="text-2xl font-bold text-center mb-6">
+    <form onSubmit={handleAuth} className="w-full max-w-md bg-white p-6 rounded-md shadow-md">
+      <h2 className="text-xl font-bold mb-4">
         {isLogin ? "Iniciar Sesión" : "Registrarse"}
       </h2>
+
+      {error && <p className="text-red-500 mb-4">{error}</p>}
+
       <div className="mb-4">
-        <label className="block text-sm font-bold mb-2">Correo</label>
+        <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+          Correo electrónico
+        </label>
         <input
           type="email"
+          id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border border-gray-300 p-3 w-full rounded-lg focus:border-blue-500 focus:outline-none"
           placeholder="correo@ejemplo.com"
+          className="w-full border border-gray-300 rounded-md px-3 py-2"
           required
         />
       </div>
+
       <div className="mb-4">
-        <label className="block text-sm font-bold mb-2">Contraseña</label>
+        <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
+          Contraseña
+        </label>
         <input
           type="password"
+          id="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border border-gray-300 p-3 w-full rounded-lg focus:border-blue-500 focus:outline-none"
           placeholder="Contraseña"
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full border border-gray-300 rounded-md px-3 py-2"
           required
         />
       </div>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+
+      {!isLogin && (
+        <div className="mb-4">
+          <label htmlFor="confirmPassword" className="block text-gray-700 font-semibold mb-2">
+            Confirmar Contraseña
+          </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword?.(e.target.value)}
+            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            required
+          />
+        </div>
+      )}
+
       <button
         type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full hover:bg-blue-600"
+        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg mt-2"
       >
         {isLogin ? "Iniciar Sesión" : "Registrarse"}
       </button>
